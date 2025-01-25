@@ -1,0 +1,16 @@
+
+
+.ajuster {
+    display: block; /* Default for larger screens */
+}
+
+
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .ajuster {
+        display: flex;
+         /* Adjust as needed */
+        justify-content: space-between;
+        
+        width: 100%;
+    }
+}
