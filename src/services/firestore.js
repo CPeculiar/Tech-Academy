@@ -11,7 +11,8 @@ import {
   deleteDoc,
   query,
   where,
-  Timestamp
+  Timestamp,
+  orderBy
 } from 'firebase/firestore';
 
 
@@ -42,3 +43,27 @@ export const submitApplication = async (formData) => {
     throw error;
   }
 };
+
+export const fetchApplications = async () => {
+  try {
+    const q = query(
+      collection(db, "applications"), 
+      orderBy("submittedAt", "desc")
+    );
+    const querySnapshot = await getDocs(q);
+    
+    return querySnapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        ...data,
+        submittedAt: data.submittedAt.toDate() // Convert Timestamp to Date
+      };
+    });
+  } catch (error) {
+    console.error("Error fetching applications:", error);
+    throw error;
+  }
+};
+
+export { db }; // Export db for any additional Firebase operations

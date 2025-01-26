@@ -106,8 +106,8 @@ export default function HomePage() {
                 Kickstart Your Tech Journey – Enroll in Our First Digital Skills Training! 
                 </h1>
                 <p className="text-sm md:text-base text-white mb-4">
-                Gain hands-on experience in essential digital skills and unlock new career opportunities. 
-                Join our first training session and start building your future in tech today!
+                Gain hands-on experience in essential digital career paths and unlock new opportunities. 
+                Join our first training session and take the first step toward a successful tech career today!
                 </p>
                 <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
                   <a 
