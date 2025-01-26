@@ -44,6 +44,25 @@ export const submitApplication = async (formData) => {
   }
 };
 
+
+export const submitFormApplication = async (formData) => {
+  try {
+    const docRef = await addDoc(collection(db, "leadershipApplications"), {
+      ...formData,
+      submittedAt: new Date()
+    });
+    return docRef.id;
+  } catch (error) {
+    console.error("Error details:", {
+      message: error.message,
+      code: error.code,
+      stack: error.stack
+    });
+    throw error;
+  }
+};
+
+
 export const fetchApplications = async () => {
   try {
     const q = query(

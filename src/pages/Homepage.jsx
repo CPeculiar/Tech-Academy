@@ -2,20 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram,  X, Phone, Mail, CheckCircle } from 'lucide-react';
 import { FaTiktok, FaYoutube } from 'react-icons/fa'; 
+import emailjs from "emailjs-com";
 import '../styles/Home.css';
 import Header from '../components/Header';
 
 export default function HomePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('ContactForm');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
-    church: '',
+    address: '',
     message: '',
   });
   const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const [timeRemaining, setTimeRemaining] = useState({
     days: 25,
@@ -56,9 +59,6 @@ export default function HomePage() {
     });
   };
 
-
-
-
   const handleChange = (e) => {
     setFormErrors({});
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -69,24 +69,68 @@ export default function HomePage() {
     if (!formData.name.trim()) errors.name = 'Name is required';
     if (!formData.email.trim()) errors.email = 'Email is required';
     if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = 'Email is invalid';
-    if (!formData.church.trim()) errors.church = 'Name of Church is required';
+    if (!formData.address.trim()) errors.address = 'Address is required';
     if (!formData.message.trim()) errors.message = 'Message is required';
     if (!formData.phone.trim()) {
       errors.phone = 'Phone number is required';
     } else if (!/^\+?\d{10,15}$/.test(formData.phone)) {
       errors.phone = 'Phone number is invalid';
     }
-    return errors;
+    // return errors;
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const errors = validateForm();
-    if (Object.keys(errors).length === 0) {
-      // Handle form submission logic here
-      alert('Form submitted successfully!');
+    setFormErrors({});
+    setIsLoading(true);
+
+    if (!validateForm()) {
+      setIsLoading(false);
+      return;
+    }
+
+    if (validateForm()) {
+      try {
+        const response = await emailjs.send(
+          "service_qpmm229",
+          "template_mpaslmz",
+          {
+            to_email: "chukwudipeculiar@gmail.com",
+            from_name: formData.name,
+            from_phone: formData.phone,
+            from_email: formData.email,
+            address: formData.address,
+            message: formData.message,
+          },
+          "MsKdu3pdoxmwdF031"
+        );
+
+        if (response.status === 200) {
+          setIsSuccess(true);
+
+          alert("Message sent successfully!");
+          setFormData({
+            name: "",
+            phone: "",
+            email: "",
+            address: "",
+            message: "",
+          });
+          setIsLoading(false);
+        } else {
+          alert("Failed to send message. Please try again.");
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.error("Form submission failed:", error);
+        alert("Form submission failed. Please try again.");
+        setFormErrors({ form: `Form submission failed: ${error.message}` });
+      }
     } else {
       setFormErrors(errors);
+      setIsLoading(false);
     }
   };
   
@@ -153,8 +197,9 @@ export default function HomePage() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">About Us</h2>
                 <p className="mb-4 text-justify">
-                Our Tech Academy is committed to equipping individuals with the essential digital skills needed to thrive in today's technology-driven world.
-                With a focus on practical, hands-on training, we empower students to excel in various digital fields, from programming to UI/UX design and beyond.
+                PEF Tech Academy is a Tech institute under the Pastor Elochukwu Udegbunam Foundation (P.E.F). 
+                We are committed to equipping individuals with the essential digital skills needed to thrive in today's technology-driven world.
+                With a focus on practical, hands-on training, we empower students to excel in various digital fields.
               </p>
                 <p className="mb-4 text-justify">
                 Whether you're a beginner looking to start your tech journey or a professional seeking to upskill, our structured programs are designed to help
@@ -224,14 +269,15 @@ export default function HomePage() {
             
             <ul className="space-y-4 text-white">
               {[
-                "Age range: 25-35 years old",
-                "Bachelor's degree in health-related, IT, or social sciences",
-                "Demonstrable interest/experience in public health, NGO work, or community leadership projects",
-                "Full-time availability for the fellowship programme",
-                "State indigeneity for the applied region",
-                "Smartphone with data capabilities (WhatsApp, Zoom, etc.)",
-                "Recommendation from University Dean, NYSC, or respected organization",
-                "Strong analytical skills and entrepreneurial drive"
+                "Age range: 15-45 years old",
+                "Demonstrable passion and interest in Technology",
+                "Full-time availability for the duration of the training program",
+                "Ability to keep up with coursework, assignments, and deadlines",               
+                "Reliable internet for virtual classes, research, and project collaboration",
+                "Openness to new concepts, technologies, and continuous self-improvement",
+                "Must have a team-oriented mindset and a willingness to collaborate on projects",
+                "Should possess a basic understanding of computer operations and familiarity with digital tools",
+                "Must have a smartphone (and, preferably, a laptop) capable of running essential software and tools",
               ].map((requirement, index) => (
                 <li 
                   key={index} 
@@ -316,13 +362,13 @@ export default function HomePage() {
                     <div>
                       <input
                         type="text"
-                        name="church"
+                        name="address"
                         placeholder="Address"
                         className="w-full border rounded-lg px-4 py-2"
-                        value={formData.church}
+                        value={formData.address}
                         onChange={handleChange}
                       />
-                      {formErrors.church && <p className="text-red-500 text-sm mt-1">{formErrors.church}</p>}
+                      {formErrors.address && <p className="text-red-500 text-sm mt-1">{formErrors.address}</p>}
                     </div>
                   </div>
                   <div>
@@ -337,8 +383,12 @@ export default function HomePage() {
                     {formErrors.message && <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>}
                   </div>
                   <div className="text-center">
-                    <button type="submit" className="bg-gray-900 text-white px-8 py-2 rounded-lg hover:bg-gray-500 transition duration-300">
-                      Send message
+                    <button type="submit" 
+                    disabled={isLoading}
+                    className={`bg-gray-900 text-white px-8 py-2 rounded-lg hover:bg-gray-500 transition duration-300
+                    ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                      {isLoading ? 'Submitting...' : 'Submit Application'}
                     </button>
                   </div>
                 </form>

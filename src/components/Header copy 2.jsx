@@ -3,36 +3,48 @@ import { useLocation } from 'react-router-dom';
 
 const Header = () => {
   const location = useLocation();
-  // Target UNIX timestamp for 11:59 PM, 23rd February 2025
-  const targetTimestamp = 1740268740000;
-
-  const calculateTimeLeft = () => {
-    const now = new Date().getTime();
-    const difference = targetTimestamp - now;
-
-    if (difference <= 0) {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    }
-
+  const [timeRemaining, setTimeRemaining] = useState(() => {
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 25);
     return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((difference % (1000 * 60)) / 1000),
+      targetDate: targetDate.getTime(),
+      days: 25,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
     };
-  };
-
-  const [timeRemaining, setTimeRemaining] = useState(calculateTimeLeft());
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeRemaining(calculateTimeLeft());
+      const now = new Date().getTime();
+      const difference = timeRemaining.targetDate - now;
+
+      if (difference < 0) {
+        clearInterval(interval);
+        setTimeRemaining({
+          targetDate: new Date().getTime() + 25 * 24 * 60 * 60 * 1000,
+          days: 25,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        });
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      setTimeRemaining({ targetDate: timeRemaining.targetDate, days, hours, minutes, seconds });
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const isHomePage = location.pathname === "/" || location.pathname === "/home";
+  // Check if current page is homepage (/ or /home)
+  const isHomePage = location.pathname === '/' || location.pathname === '/home';
 
   return (
     <header className="fixed top-0 left-0 w-full bg-gray-900 text-white z-10 py-2 px-4 md:px-6">

@@ -724,6 +724,70 @@ export default function RegistrationPage() {
               </form>
             </div>
           </div>
+          
+            {/* Footer */}
+                <footer className="bg-gray-900 pt-12 pb-6">
+                <div className="container mx-auto px-4 sm:px-6">
+                  <div className="flex flex-col md:flex-row justify-between items-center mb-8 space-y-6 md:space-y-0">
+                    {/* Logo */}
+                    <div className="w-32 md:w-24 h-20 flex justify-center md:justify-start">
+                    <a href="/">
+                      <img 
+                        src="/PEF-TECH-Logo-noBg2.png" 
+                        alt="CJ ART Logo" 
+                        className="object-contain w-full h-full"
+                      />
+                      </a>
+                    </div>
+          
+                    {/* Social Icons */}
+                    <div className="flex space-x-6 justify-center">
+                      <SocialIcon 
+                        href="https://www.facebook.com/thelordsbrethrenchurchintl" 
+                        icon={<Facebook size={24} />} 
+                      />
+                      <SocialIcon 
+                        href="https://www.instagram.com/thelordsbrethrenchurchintl" 
+                        icon={<Instagram size={24} />} 
+                      />
+                      <SocialIcon 
+                        href="https://www.youtube.com/channel/UCcdBHIYqSBIktXvHimyPkaw" 
+                        icon={<FaYoutube size={24} />} 
+                      />
+                    </div>
+                  </div>
+          
+                  {/* Contact Information */}
+                  <div className="flex justify-center mb-8">
+                    <div className="text-center">
+                      <h5 className="text-lg font-semibold mb-4 text-white">Have any questions?</h5>
+                      <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a 
+                          href="tel:0913-444-5037" 
+                          className="flex items-center justify-center text-white hover:text-teal-400 transition-colors"
+                        >
+                          <Phone size={18} className="mr-2" />
+                          0913-444-5037
+                        </a>
+                        <a 
+                          href="mailto:info@thelordsbrethrenchurch.org" 
+                          className="flex items-center justify-center text-white hover:text-teal-400 transition-colors"
+                        >
+                          <Mail size={18} className="mr-2" />
+                          info@thelordsbrethrenchurch.org
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+          
+                  {/* Copyright */}
+                  <div className="border-t border-gray-700 pt-6">
+                    <p className="text-center text-sm text-white">
+                      Copyright © 2025 || TECH ACADEMY
+                    </p>
+                  </div>
+                </div>
+              </footer>
         </section>
   
         {showSuccessModal && (
@@ -752,3 +816,14 @@ export default function RegistrationPage() {
     </div>
   );
  
+  // Utility Components
+const SocialIcon = ({ href, icon }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-teal-400 transition-colors"
+  >
+    {icon}
+  </a>
+);
