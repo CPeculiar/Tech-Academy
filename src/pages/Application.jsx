@@ -487,7 +487,7 @@ export default function RegistrationPage() {
                   onChange={handleChange}
                   className="w-full border rounded-lg px-4 py-2"
                 >
-                  <option value="">Select Learning Track</option>
+                  <option value="" disabled>Select Learning Track</option>
                   <option value="Frontend Web Development">Frontend Web Development</option>
                   <option value="Data Analysis">Data Analysis</option>
                   <option value="WordPress Technology">WordPress Technology</option>
@@ -496,6 +496,10 @@ export default function RegistrationPage() {
                   <option value="Microsoft Office Applications">Microsoft Office Applications</option>
                   <option value="Virtual Assistant">Virtual Assistant</option>
                   <option value="Customer Support">Customer Support</option>
+                  <option value="Digital Marketing">Digital Marketing</option>
+                  <option value="Video Editing">Video Editing</option>
+                  <option value="Printing and Branding">Printing and Branding</option>
+
                 </select>
                 {formErrors.learningTrack && 
                   <p className="text-red-500 text-sm">{formErrors.learningTrack}</p>
