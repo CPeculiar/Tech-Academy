@@ -282,7 +282,7 @@ const stateOptions = nigeriaStates.map(state => ({ value: state, label: state })
               <p className="text-lg md:text-lg text-white text-center md:text-left"> 
                 Fill the form below to register. <br/>
                 <span className='text-red-500 hover:text-red-300'>  
-                  Application Deadline: 23rd February, 2025 
+                  Application Deadline: 25th May, 2025 
                 </span>
               </p>
             </div>

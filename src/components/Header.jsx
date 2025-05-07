@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 const Header = () => {
   const location = useLocation();
   // Target UNIX timestamp for 11:59 PM, 23rd February 2025
-  const targetTimestamp = 1740268740000;
+  const targetTimestamp = 1748217540000;
 
   const calculateTimeLeft = () => {
     const now = new Date().getTime();
@@ -53,9 +53,9 @@ const Header = () => {
           <div className="md:hidden flex flex-col items-center w-full mb-2">
             <a 
               href="/apply" 
-              className="bg-[#E12322] rounded-lg text-white px-6 py-2 font-bold hover:bg-[#c01f1f] transition-colors text-sm w-full text-center"
+              
             >
-              Apply Now
+              
             </a>
           </div>
         )}
@@ -90,9 +90,9 @@ const Header = () => {
         <div className="hidden md:block">
           <a 
             href="/apply" 
-            className="bg-[#E12322] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#c01f1f] transition-colors"
+            className=" text-white px-6 py-2 rounded-lg font-bold hover:bg-[#c01f1f] transition-colors"
           >
-            Apply Now
+            
           </a>
         </div>
         )}

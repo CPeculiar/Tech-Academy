@@ -139,6 +139,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gray-900 text-white  md:pr-0">
 
     <Header />
+
       {/* Hero Section */}
       <section className="text-white pt-20 md:pt-0 mt-4">
         <div className="relative  bg-[url('/image2.jpeg')] bg-cover bg-center flex items-center mt-6">
@@ -146,37 +147,47 @@ export default function HomePage() {
           <div className="relative container mx-auto px-4 py-20">
             <div className="flex flex-col-reverse md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
               <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
+               {/* Institute Name in Hero - NEW ADDITION */}
+                <div className="mb-4">
+                  <span className="bg-red-500 text-white px-4 py-1 rounded-lg inline-block mt-5 text-xl md:text-2xl font-bold tracking-wide mb-3">
+                    FUTURE AFRICA LEADERSHIP AND TECH ACADEMY
+                  </span>
+                </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Kickstart Your Tech Journey – Enroll in Our First Digital Skills Training! 
+                Become a Visionary Leader or a Digital Trailblazer 
                 </h1>
                 <p className="text-sm md:text-base text-white mb-4">
-                Gain hands-on experience in essential digital career paths and unlock new opportunities. 
-                Join our first training session and take the first step toward a successful tech career today!
+                Whether you're passionate about transforming lives through leadership or driving innovation through technology, 
+            our academy offers the training, mentorship, and tools you need to lead and thrive in Africa's future.
                 </p>
-                <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
-                  <a 
-                    href="/apply" 
-                    className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 md:py-3 md:px-6 rounded-lg inline-flex items-center justify-center w-full md:w-auto"
-                  >
-                    Register Now
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      className="h-4 w-4 md:h-5 md:w-5 ml-2" 
-                      viewBox="0 0 20 20" 
-                      fill="currentColor"
-                    >
-                      <path 
-                        fillRule="evenodd" 
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
-                        clipRule="evenodd" 
-                      />
-                    </svg>
+
+                <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4">
+            <a 
+              href="/apply" 
+              className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 md:py-3 md:px-6 rounded-lg inline-flex items-center justify-center w-full md:w-auto transition duration-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m4-2h-4V7a1 1 0 00-2 0v3H7a1 1 0 000 2h3v4h1m2 0v-4h3a1 1 0 000-2h-3V7a1 1 0 00-2 0v3h-3a1 1 0 000 2h3v4" />
+              </svg>
+              Explore Tech Track
+            </a>
+            
+            <a 
+              href="/register" 
+              className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 md:py-3 md:px-6 rounded-lg inline-flex items-center justify-center w-full md:w-auto transition duration-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 14h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" />
+              </svg>
+              Explore Leadership Track
                   </a> 
+                  </div>
+
                   <p className="text-sm md:text-base text-white text-center md:text-left"> 
-                    Application Deadline: 23rd February, 2025
+                    Application Deadline: 25th May, 2025
                   </p>
                 </div>
-              </div>
+              
               <div className="w-full md:w-1/2 flex justify-center mb-6 md:mb-0 heroimage">
                 <img 
                   src="/image13.png" 
@@ -197,37 +208,75 @@ export default function HomePage() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">About Us</h2>
                 <p className="mb-4 text-justify">
-                PEF Tech Academy is a Tech institute under the Pastor Elochukwu Udegbunam Foundation (P.E.F). 
-                We are committed to equipping individuals with the essential digital skills needed to thrive in today's technology-driven world.
-                With a focus on practical, hands-on training, we empower students to excel in various digital fields.
+               <span className='font-bold'> FUTURE AFRICA LEADERSHIP AND TECH ACADEMY </span> is an institute under the Pastor Elochukwu Udegbunam Foundation (P.E.F). 
+                We are committed to equipping individuals with the essential leadership and digital skills needed to thrive in today's world.
+                
+                <p className="mb-4 text-justify mt-2">
+                The leadership arm of this institute is saddled with the responsibility of raising leaders who will become trailblazers in their world and in Africa at 
+                large. At the heart of our leadership program is a vision to develop responsible, visionary, and transformational leaders who will shape the future
+                 of Africa through innovation, ethics, and service. Our curriculum is centered on character building, strategic thinking, emotional intelligence, 
+                effective communication and other qualities essential for impactful leadership in any sphere of life.
+
+                <p className="mb-4 text-justify mt-2">
+                Through structured leadership workshops, mentoring sessions with accomplished leaders, and community-based projects, we provide participants with real-world 
+                exposure that fosters courage, creativity, and influence. We are deeply committed to raising a new breed of leaders who will solve Africa's challenges, 
+                empower others, and lead with integrity.
+                </p>
+
+                <p className="mb-4 text-justify mt-2">
+                From students and young professionals to aspiring public servants and community builders, our leadership track welcomes individuals who desire to be 
+                catalysts for positive change — equipped not just with knowledge, but with purpose and vision.
+                </p>
+
+               </p>
+                The Tech Academy is focused on equipping individuals with the essential digital skills needed to thrive in today's technology-driven world. 
+                With a focus on practical, hands-on training, the Tech Academy empowers students to excel in various digital fields.
+
               </p>
                 <p className="mb-4 text-justify">
                 Whether you're a beginner looking to start your tech journey or a professional seeking to upskill, our structured programs are designed to help
                 you achieve your goals.
+
                 </p>
                 <p className="mb-4 text-justify">
-                Join us and gain the expertise needed to compete in the global digital economy while contributing to technological advancements in our community.
+                Join us and gain the expertise needed to compete in the global digital economy while contributing to technological advancements in your community.
+
                 </p>
                 <h4 className="text-3xl md:text-3xl font-bold mb-4 mt-6 text-center md:text-left">Our Ability</h4>
                 <p className="mb-4 text-justify">
-                We specialize in providing high-quality training in key digital skills, including web development, data analytics, cybersecurity, cloud computing,
-                digital marketing, and more. Our goal is to bridge the digital divide by making tech education accessible to everyone.
-              </p>
+                We specialize in delivering high-quality training in both leadership and technology. In the leadership arm, we empower individuals to become 
+                value-driven leaders equipped with the mindset and capacity to influence their communities and nations. Our leadership training covers
+                personal development, strategic leadership, ethical governance, and social impact initiatives.
+                </p>
+
+                <p className="mb-4 text-justify mt-2">
+                In the tech arm, we provide robust training in web development, software engineering, data analytics, cybersecurity, digital marketing,
+                Graphics designing, Video editing, and other in-demand skills. <br/> Our aim is to bridge the leadership and digital skill gap across Africa 
+                by making these transformative programs accessible to everyone with the passion to grow and lead.
+                </p>
+
                 <h4 className="text-3xl md:text-3xl font-bold mb-4 mt-6 text-center md:text-left">Our Uniqueness</h4>
                 <p className='text-justify'>
-                We believe in a hands-on, project-based approach to learning. Our academy provides mentorship from industry experts, real-world projects, and a
-                supportive learning environment to ensure our students gain both technical and soft skills needed to excel in the tech industry.
+                What sets us apart is our holistic approach to development. We don't just teach skills — we build people. Through our leadership track, 
+                participants engage in practical leadership labs, mentorship from experienced leaders, and community-based assignments that encourage 
+                real-world impact. 
+              </p>
+
+              <p className='text-justify mt-2'>
+              Our tech programs combine hands-on, project-based learning with mentorship from industry professionals and a curriculum tailored to market 
+              relevance. Both arms emphasize collaboration, personal growth, critical thinking, and innovation — ensuring our graduates are not only 
+              technically sound but also visionary, ethical, and resilient leaders for Africa’s future.
               </p>
               </div>
             </div>
 
-            <div className="lg:w-1/2 relative overflow-hidden">
+  <div className="lg:w-1/2 relative overflow-hidden">
   <img 
     src="/image4.jpg" 
     alt="About TLBC" 
     className="w-full h-auto object-cover rounded-lg" 
   />
- <div className="absolute bottom-0 left-0 right-0 bg-white/75 backdrop-blur-sm hidden sm:block p-4 sm:p-8">
+ <div className="bottom-0 left-0 right-0 bg-white/75 backdrop-blur-sm hidden sm:block p-4 sm:p-8 mt-3">
     <div className="flex items-center max-w-md mx-auto">
       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-500 rounded-full flex items-center justify-center mr-3 sm:mr-4 text-white">
         👥
@@ -269,15 +318,15 @@ export default function HomePage() {
             
             <ul className="space-y-4 text-white">
               {[
-                "Age range: 15-45 years old",
-                "Demonstrable passion and interest in Technology",
+                "Age range: 12-45 years old",
+                "A demonstrable interest in technology and digital innovation",
+                "A demonstrable passion for leadership, influence, and societal impact",
                 "Full-time availability for the duration of the training program",
+                "Openness to new concepts, and continuous self-improvement and growth",
                 "Ability to keep up with coursework, assignments, and deadlines",               
-                "Reliable internet for virtual classes, research, and project collaboration",
-                "Openness to new concepts, technologies, and continuous self-improvement",
+                "Access to a smartphone (and preferably a laptop) capable of running basic computer programs",
+                "Reliable internet access for virtual sessions, exercises, and group projects",
                 "Must have a team-oriented mindset and a willingness to collaborate on projects",
-                "Should possess a basic understanding of computer operations and familiarity with digital tools",
-                "Must have a smartphone (and, preferably, a laptop) capable of running essential software and tools",
               ].map((requirement, index) => (
                 <li 
                   key={index} 
@@ -290,7 +339,7 @@ export default function HomePage() {
             </ul>
           </div>
           
-          <div className="text-center md:text-left">
+          {/* <div className="text-center md:text-left">
             <a 
               href="/apply" 
               className="bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg inline-flex items-center justify-center transition-colors duration-300"
@@ -309,7 +358,7 @@ export default function HomePage() {
                 />
               </svg>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
@@ -456,7 +505,7 @@ export default function HomePage() {
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-6">
           <p className="text-center text-sm text-white">
-            Copyright © 2025 || TECH ACADEMY
+            Copyright © 2025 || FUTURE AFRICA LEADERSHIP AND TECH ACADEMY
           </p>
         </div>
       </div>
