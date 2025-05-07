@@ -490,8 +490,7 @@ export default function RegistrationPage() {
                   <option value="" disabled>Select Learning Track</option>
                   <option value="Frontend Web Development">Frontend Web Development</option>
                   <option value="Data Analysis">Data Analysis</option>
-                  <option value="WordPress Technology">WordPress Technology</option>
-                  <option value="UI/UX Design">UI/UX Design</option>
+                  {/* <option value="WordPress Technology">WordPress Technology</option> */}
                   <option value="Graphics Designing">Graphics Designing</option>
                   <option value="Microsoft Office Applications">Microsoft Office Applications</option>
                   <option value="Virtual Assistant">Virtual Assistant</option>

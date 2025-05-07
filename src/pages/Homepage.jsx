@@ -148,11 +148,11 @@ export default function HomePage() {
             <div className="flex flex-col-reverse md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
               <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
                {/* Institute Name in Hero - NEW ADDITION */}
-                <div className="mb-4">
+                {/* <div className="mb-4">
                   <span className="bg-red-500 text-white px-4 py-1 rounded-lg inline-block mt-5 text-xl md:text-2xl font-bold tracking-wide mb-3">
                     FUTURE AFRICA LEADERSHIP AND TECH ACADEMY
                   </span>
-                </div>
+                </div> */}
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Become a Visionary Leader or a Digital Trailblazer 
                 </h1>
